@@ -2,12 +2,19 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { FaHeart, FaBrain, FaLungs, FaStar, FaSun, FaMoon } from 'react-icons/fa';
 import './App.css';
-import Card from './components/Card';
-import Victory from './components/Victory';
-import About from './components/About';
-import Explanation from './components/Explanation';
+import Card from './components/Card.tsx';
+import Victory from './components/Victory.tsx';
+import About from './components/About.tsx';
+import Explanation from './components/Explanation.tsx';
 
-const cardData = [
+interface CardData {
+  id: number;
+  type: string;
+  icon?: JSX.Element;
+  text: string;
+}
+
+const cardData: CardData[] = [
   { id: 1, type: 'heart', icon: <FaHeart />, text: 'Bombeia sangue pelo corpo.' },
   { id: 2, type: 'brain', icon: <FaBrain />, text: 'Controla o sistema nervoso.' },
   { id: 3, type: 'lungs', icon: <FaLungs />, text: 'Responsável pela respiração.' },
@@ -23,10 +30,10 @@ const cardData = [
 ];
 
 function App() {
-  const [cards, setCards] = useState([]);
-  const [flippedCards, setFlippedCards] = useState([]);
-  const [matchedCards, setMatchedCards] = useState([]);
-  const [gameWon, setGameWon] = useState(false);
+  const [cards, setCards] = useState<CardData[]>([]);
+  const [flippedCards, setFlippedCards] = useState<number[]>([]);
+  const [matchedCards, setMatchedCards] = useState<number[]>([]);
+  const [gameWon, setGameWon] = useState<boolean>(false);
 
   useEffect(() => {
     const shuffledCards = shuffleCards(cardData);
@@ -39,7 +46,7 @@ function App() {
     }
   }, [matchedCards]);
 
-  const shuffleCards = (cards) => {
+  const shuffleCards = (cards: CardData[]): CardData[] => {
     let shuffled = [...cards];
     for (let i = shuffled.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -48,7 +55,7 @@ function App() {
     return shuffled;
   };
 
-  const handleCardClick = (id) => {
+  const handleCardClick = (id: number) => {
     if (flippedCards.length === 2) return;
     setFlippedCards((prev) => [...prev, id]);
 
@@ -58,7 +65,7 @@ function App() {
       const firstCard = cards.find(card => card.id === first);
       const secondCard = cards.find(card => card.id === second);
 
-      if (firstCard.type === secondCard.type) {
+      if (firstCard && secondCard && firstCard.type === secondCard.type) {
         setMatchedCards((prev) => [...prev, first, second]);
       }
 
