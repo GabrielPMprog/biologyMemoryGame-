@@ -1,9 +1,6 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import {
-  FaCrown ,
-  FaLungs
-} from "react-icons/fa";
+import { FaCrown, FaLungs } from "react-icons/fa";
 
 import { GiHeartOrgan } from "react-icons/gi";
 
@@ -12,11 +9,11 @@ import Card from "./components/Card.tsx";
 import Victory from "./components/Victory.tsx";
 import About from "./components/About.tsx";
 import Explanation from "./components/Explanation.tsx";
-import Legend from './components/Legend.tsx'
+import Legend from "./components/Legend.tsx";
 
 import urinary from "./assets/urinary.png";
 import excretory from "./assets/excretory.png";
-import immunological from './assets/immunological.png'
+import immunological from "./assets/immunological.png";
 
 interface CardData {
   id: number;
@@ -50,18 +47,39 @@ const cardData: CardData[] = [
     icon: <GiHeartOrgan className="icon" />,
     text: "Garante o transporte de sangue pelo corpo.",
   },
-  { id: 5, type: "immunological", icon: <img src={immunological} alt="imunológico" />, text: "Previne danos, combate microrganismos, detecta patógenos e responde eficazmente." },
+  {
+    id: 5,
+    type: "immunological",
+    icon: <img src={immunological} alt="imunológico" />,
+    text: "Previne danos, combate microrganismos, detecta patógenos e responde eficazmente.",
+  },
   {
     id: 6,
     type: "king",
     icon: <FaCrown className="icon" />,
     text: "Rei Mallet, THE KING!",
   },
-  { id: 7, type: "urinary", text: "Elimina as substâncias indesejadas e filtra o plasma, também responsável pela homeostase." },
-  { id: 8, type: "excretory", text: "Elimina as substâncias tóxicas em excesso por meio da produção da urina." },
+  {
+    id: 7,
+    type: "urinary",
+    text: "Elimina as substâncias indesejadas e filtra o plasma, também responsável pela homeostase.",
+  },
+  {
+    id: 8,
+    type: "excretory",
+    text: "Elimina as substâncias tóxicas em excesso por meio da produção da urina.",
+  },
   { id: 9, type: "breathing", text: "Sua principal função é a troca gasosa." },
-  { id: 10, type: "cardiovascular", text: "Garante o transporte de sangue pelo corpo." },
-  { id: 11, type: "immunological", text: "Previne danos, combate microrganismos, detecta patógenos e responde eficazmente." },
+  {
+    id: 10,
+    type: "cardiovascular",
+    text: "Garante o transporte de sangue pelo corpo.",
+  },
+  {
+    id: 11,
+    type: "immunological",
+    text: "Previne danos, combate microrganismos, detecta patógenos e responde eficazmente.",
+  },
   { id: 12, type: "king", text: "Rei Mallet, THE KING!" },
 ];
 
@@ -143,7 +161,7 @@ function App() {
                 <Victory onRestart={restartGame} />
               ) : (
                 <>
-                  <h1>Jogo da Memória</h1>
+                  <h1 className="title">Jogo da Memória</h1>
                   <div className="card-grid">
                     {cards.map((card) => (
                       <Card
@@ -156,10 +174,9 @@ function App() {
                         onClick={() => handleCardClick(card.id)}
                       />
                     ))}
-                   
-                   <Legend />
-                    </div>
-             
+
+                    <Legend />
+                  </div>
                 </>
               )
             }

@@ -3,15 +3,24 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 50px;
 }
 
 .explanationOne h3{
     font-weight: 700;
     font-size: 25px;
+    margin-bottom: 10px;
 }
 
 .explanationOne p{
 
 font-size: 20px;
 width: 60%;
+}
+
+.explanationOne ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }

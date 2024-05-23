@@ -7,8 +7,20 @@
   .legend h2 {
     font-size: 1.5em;
     margin-bottom: 10px;
+display: flex;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+font-style: italic;
+flex-direction: column;
   }
   
+.legend h2::after{
+  width: 40px;
+  height: 5px;
+  background-color:  rgb(3, 3, 198);
+  content: "";
+  margin-top: 5px;
+}
+
   .legend ul {
     list-style: none;
     padding: 0;
