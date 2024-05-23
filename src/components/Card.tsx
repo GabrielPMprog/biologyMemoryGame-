@@ -5,8 +5,8 @@ interface CardProps {
   card: {
     id: number;
     type: string;
-    icon?: JSX.Element;
-    text: string;
+    icon?: React.ReactNode;
+    text: string; 
   };
   isFlipped: boolean;
   onClick: () => void;

@@ -1,6 +1,8 @@
+import './About.css'
+
 function About() {
   return (
-    <div style={{ padding: '20px', textAlign: 'left' }}>
+    <div className= "aboutContainer"style={{ padding: '20px', textAlign: 'left' }}>
       <h1>Sobre</h1>
       <p>
         Este projeto foi idealizado pela professora Barbara, uma educadora dedicada e inspiradora. 
